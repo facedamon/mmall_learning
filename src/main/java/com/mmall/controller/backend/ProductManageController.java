@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/manage/product")
-public class PeoductManageController {
+public class ProductManageController {
     @Autowired
     private IUserService iUserService;
 
