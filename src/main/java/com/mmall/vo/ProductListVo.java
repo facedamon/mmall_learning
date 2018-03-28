@@ -84,21 +84,36 @@ public class ProductListVo {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ProductListVo)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ProductListVo)) {
+            return false;
+        }
 
         ProductListVo that = (ProductListVo) o;
 
-        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
-        if (getCategoryId() != null ? !getCategoryId().equals(that.getCategoryId()) : that.getCategoryId() != null)
+        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) {
             return false;
-        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        if (getImageHost() != null ? !getImageHost().equals(that.getImageHost()) : that.getImageHost() != null)
+        }
+        if (getCategoryId() != null ? !getCategoryId().equals(that.getCategoryId()) : that.getCategoryId() != null) {
             return false;
-        if (getMainImage() != null ? !getMainImage().equals(that.getMainImage()) : that.getMainImage() != null)
+        }
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) {
             return false;
-        if (getStatus() != null ? !getStatus().equals(that.getStatus()) : that.getStatus() != null) return false;
-        if (getPrice() != null ? !getPrice().equals(that.getPrice()) : that.getPrice() != null) return false;
+        }
+        if (getImageHost() != null ? !getImageHost().equals(that.getImageHost()) : that.getImageHost() != null) {
+            return false;
+        }
+        if (getMainImage() != null ? !getMainImage().equals(that.getMainImage()) : that.getMainImage() != null) {
+            return false;
+        }
+        if (getStatus() != null ? !getStatus().equals(that.getStatus()) : that.getStatus() != null) {
+            return false;
+        }
+        if (getPrice() != null ? !getPrice().equals(that.getPrice()) : that.getPrice() != null) {
+            return false;
+        }
         return getSubtitle() != null ? getSubtitle().equals(that.getSubtitle()) : that.getSubtitle() == null;
     }
 

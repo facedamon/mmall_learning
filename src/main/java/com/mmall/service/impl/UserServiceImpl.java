@@ -95,6 +95,7 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccessMessage("注册成功");
     }
 
+    @Override
     public ServerResponse<String> selectQuestion(String username){
         ServerResponse<String> response = this.checkValid(username,Const.USERNAME);
         if(response.isSuccess()){

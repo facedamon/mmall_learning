@@ -152,31 +152,54 @@ public class ProductDetailVo {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ProductDetailVo)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ProductDetailVo)) {
+            return false;
+        }
 
         ProductDetailVo that = (ProductDetailVo) o;
 
-        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
-        if (getCategoryId() != null ? !getCategoryId().equals(that.getCategoryId()) : that.getCategoryId() != null)
+        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) {
             return false;
-        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        if (getSubtitle() != null ? !getSubtitle().equals(that.getSubtitle()) : that.getSubtitle() != null)
+        }
+        if (getCategoryId() != null ? !getCategoryId().equals(that.getCategoryId()) : that.getCategoryId() != null) {
             return false;
-        if (getMainImage() != null ? !getMainImage().equals(that.getMainImage()) : that.getMainImage() != null)
+        }
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) {
             return false;
-        if (getSubImages() != null ? !getSubImages().equals(that.getSubImages()) : that.getSubImages() != null)
+        }
+        if (getSubtitle() != null ? !getSubtitle().equals(that.getSubtitle()) : that.getSubtitle() != null) {
             return false;
-        if (getDetail() != null ? !getDetail().equals(that.getDetail()) : that.getDetail() != null) return false;
-        if (getPrice() != null ? !getPrice().equals(that.getPrice()) : that.getPrice() != null) return false;
-        if (getStock() != null ? !getStock().equals(that.getStock()) : that.getStock() != null) return false;
-        if (getStatus() != null ? !getStatus().equals(that.getStatus()) : that.getStatus() != null) return false;
-        if (getCreateTime() != null ? !getCreateTime().equals(that.getCreateTime()) : that.getCreateTime() != null)
+        }
+        if (getMainImage() != null ? !getMainImage().equals(that.getMainImage()) : that.getMainImage() != null) {
             return false;
-        if (getUpdateTime() != null ? !getUpdateTime().equals(that.getUpdateTime()) : that.getUpdateTime() != null)
+        }
+        if (getSubImages() != null ? !getSubImages().equals(that.getSubImages()) : that.getSubImages() != null) {
             return false;
-        if (getImageHost() != null ? !getImageHost().equals(that.getImageHost()) : that.getImageHost() != null)
+        }
+        if (getDetail() != null ? !getDetail().equals(that.getDetail()) : that.getDetail() != null) {
             return false;
+        }
+        if (getPrice() != null ? !getPrice().equals(that.getPrice()) : that.getPrice() != null) {
+            return false;
+        }
+        if (getStock() != null ? !getStock().equals(that.getStock()) : that.getStock() != null) {
+            return false;
+        }
+        if (getStatus() != null ? !getStatus().equals(that.getStatus()) : that.getStatus() != null) {
+            return false;
+        }
+        if (getCreateTime() != null ? !getCreateTime().equals(that.getCreateTime()) : that.getCreateTime() != null) {
+            return false;
+        }
+        if (getUpdateTime() != null ? !getUpdateTime().equals(that.getUpdateTime()) : that.getUpdateTime() != null) {
+            return false;
+        }
+        if (getImageHost() != null ? !getImageHost().equals(that.getImageHost()) : that.getImageHost() != null) {
+            return false;
+        }
         return getParentCategoryId() != null ? getParentCategoryId().equals(that.getParentCategoryId()) : that.getParentCategoryId() == null;
     }
 

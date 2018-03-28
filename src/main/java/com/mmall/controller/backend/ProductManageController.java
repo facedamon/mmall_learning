@@ -10,6 +10,7 @@ import com.mmall.service.IFileService;
 import com.mmall.service.IProductService;
 import com.mmall.service.IUserService;
 import com.mmall.util.PropertiesUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -140,6 +142,41 @@ public class ProductManageController {
             return ServerResponse.createBySuccess(fileMap);
         }else{
             return ServerResponse.createByErrorMessage("无操作权限，需要管理员权限");
+        }
+    }
+
+    @RequestMapping(value = "richtextImgUpload.do",method = RequestMethod.POST)
+    @ResponseBody
+    public Map richtextImgUpload(HttpServletRequest request, HttpSession session, @RequestParam(name = "upload_file",required = false) MultipartFile file, HttpServletResponse response){
+        Map result = Maps.newHashMap();
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if(null == user){
+            result.put("success",false);
+            result.put("msg",ResponseCode.NEED_LOGIN.getDesc());
+            return result;
+        }
+
+        if(iUserService.checkAdminRole(user).isSuccess()){
+            String path = request.getSession().getServletContext().getRealPath("upload");
+            String targetFileName =  iFileService.upload(file,path);
+
+            if(StringUtils.isBlank(targetFileName)){
+                result.put("success",false);
+                result.put("msg","上传失败");
+                return result;
+            }
+
+            String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
+
+            result.put("success",true);
+            result.put("msg","上传成功");
+            result.put("file_path",url);
+            response.setHeader("Access-Control-Allow-Headers","X-File-Name");
+            return result;
+        }else{
+            result.put("success",false);
+            result.put("msg","无权限操作");
+            return result;
         }
     }
 }

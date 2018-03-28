@@ -45,7 +45,7 @@ public class FileServiceImpl implements IFileService{
             //上传至vsftp服务器
             FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             //删除本地文件
-            //targetFile.delete();
+            targetFile.delete();
         } catch (IOException e) {
             logger.error("文件上传失败",e);
             return null;

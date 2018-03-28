@@ -11,4 +11,6 @@ public interface IProductService {
     ServerResponse<ProductDetailVo> selectProductDetail(Integer productId);
     ServerResponse<PageInfo> selectProductListAll(Integer pageNum, Integer pageSize);
     ServerResponse<PageInfo> selectProductList(Integer productId,String productName,Integer pageNum,Integer pageSize);
+    ServerResponse<ProductDetailVo> getProductDetail(Integer productId);
+    ServerResponse<PageInfo> getProductByKeywordAndCategory(String keyword,Integer categoryId,int pageNum,int pageSize,String orderBy);
 }

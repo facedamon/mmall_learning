@@ -9,5 +9,5 @@ public interface ICategoryService {
     ServerResponse addCategory(String categoryName, Integer parentId);
     ServerResponse updateCategory(Integer categoryId,String categoryName);
     ServerResponse<List<Category>> getChildernParallelCategory(Integer categoryId);
-    ServerResponse getCategoryAndChildernById(Integer categoryId);
+    ServerResponse<List<Integer>> getCategoryAndChildernById(Integer categoryId);
 }

@@ -198,4 +198,21 @@
     </where>
     order by id asc
   </select>
+
+  <select id="selectByNameAndCategoryIds" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from mmall_product
+    <where>
+      status = 1
+      <if test="productName != null">
+        and name like #{productName}
+      </if>
+      <if test="productIds != null">
+        <foreach collection="productIds" item="item" open="(" separator="," close=")" index="index">
+          #{item}
+        </foreach>
+      </if>
+    </where>
+  </select>
 </mapper>

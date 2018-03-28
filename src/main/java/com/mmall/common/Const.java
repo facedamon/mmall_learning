@@ -1,5 +1,9 @@
 package com.mmall.common;
 
+import com.google.common.collect.Sets;
+
+import java.util.Set;
+
 /**
  *@author facedamon
  *@description 常量工具类
@@ -27,5 +31,45 @@ public class Const {
     public interface Role{
         int ROLE__CUSTOMER = 0;
         int ROLE_ADMIN = 1;
+    }
+
+    public interface ProductListOrderBy{
+        Set<String> PRICE_DESC_ASC = Sets.newHashSet("price_desc","price_asc");
+    }
+
+    public interface Cart{
+        /**
+         * 购物车选中状态
+         */
+        int CHECKED = 1;
+        /**
+         * 购物车未选中状态
+         */
+        int UN_CHECKED = 0;
+
+        String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";
+        String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
+    }
+
+    public enum ProductStatusEnum{
+        ON_SALE(1,"在线");
+        private int code;
+        private String value;
+
+
+        public int getCode() {
+            return code;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        ProductStatusEnum(int code, String value) {
+            this.code = code;
+            this.value = value;
+        }
+
+
     }
 }

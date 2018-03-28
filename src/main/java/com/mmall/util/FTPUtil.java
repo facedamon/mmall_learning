@@ -19,6 +19,9 @@ public class FTPUtil {
     private static Logger logger = LoggerFactory.getLogger(FTPUtil.class);
 
     //初始化
+    /**
+     *
+     */
     private static String ftpIp = PropertiesUtil.getProperty("ftp.server.ip");
     private static String ftpUser = PropertiesUtil.getProperty("ftp.user");
     private static String ftpPwd = PropertiesUtil.getProperty("ftp.pass");
