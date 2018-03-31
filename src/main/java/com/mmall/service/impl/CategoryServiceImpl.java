@@ -22,7 +22,7 @@ import java.util.Set;
  * @author facedamon facedamon
  * @create 2018/3/18
  */
-@Service("iCategoryService")
+@Service()
 public class CategoryServiceImpl implements ICategoryService {
 
     private Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
